@@ -1,0 +1,13 @@
+keystore.properties
+release.jks
+*.jks
+local.properties
+build/
+.gradle/
+app/src/full/jniLibs/
+app/src/full/assets/
+app/libs/*.aar
+dist/
+.kotlin/
+.idea/
+*.iml

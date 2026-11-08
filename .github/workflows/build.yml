@@ -1,0 +1,113 @@
+name: Build
+
+# Everything from source on every push: the sing-box core (libbox), the extra cores of the full build
+# (downloaded from their projects and checked by SHA-256), unit tests, full + lite APKs.
+# A tag "v*" also publishes the APKs as a GitHub release.
+#
+# Signing: with the repository secrets KEYSTORE_BASE64 (base64 of release.jks), KEYSTORE_PASSWORD,
+# KEY_ALIAS and KEY_PASSWORD the APKs are signed with the release key; without them, with a debug key
+# (fine for testing, but it can't update an installed official build).
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  SING_BOX_VERSION: v1.14.4
+  NDK_VERSION: 29.0.14206865
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: |
+            17
+            21
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache: false
+
+      - name: Android NDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "ndk;${NDK_VERSION}" > /dev/null
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/${NDK_VERSION}" >> "$GITHUB_ENV"
+
+      - name: Cache libbox
+        id: libbox
+        uses: actions/cache@v4
+        with:
+          path: app/libs/libbox.aar
+          key: libbox-${{ env.SING_BOX_VERSION }}-ndk${{ env.NDK_VERSION }}
+
+      - name: Build libbox (sing-box ${{ env.SING_BOX_VERSION }})
+        if: steps.libbox.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 --branch "$SING_BOX_VERSION" https://github.com/SagerNet/sing-box.git "$RUNNER_TEMP/sing-box"
+          cd "$RUNNER_TEMP/sing-box"
+          go install github.com/sagernet/gomobile/cmd/gomobile@v0.1.13
+          go install github.com/sagernet/gomobile/cmd/gobind@v0.1.13
+          # build_libbox insists on OpenJDK 17
+          JAVA_HOME="$JAVA_HOME_17_X64" go run ./cmd/internal/build_libbox -target android
+          mkdir -p "$GITHUB_WORKSPACE/app/libs"
+          cp libbox.aar "$GITHUB_WORKSPACE/app/libs/"
+
+      - name: Extra cores (Xray, Hysteria, Tor, TrustTunnel)
+        run: python3 tools/fetch_cores.py
+
+      - name: Release key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > release.jks
+            printf 'storeFile=release.jks\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' "$KEYSTORE_PASSWORD" "$KEY_ALIAS" "$KEY_PASSWORD" > keystore.properties
+            echo "Signing with the release key"
+          else
+            echo "::warning::No release key in secrets: APKs are signed with a debug key"
+          fi
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Tests
+        run: ./gradlew --no-daemon testFullDebugUnitTest
+
+      - name: Build APKs
+        run: ./gradlew --no-daemon assembleFullRelease assembleLiteRelease
+
+      - name: Collect
+        run: |
+          mkdir -p out
+          cp app/build/outputs/apk/full/release/*.apk app/build/outputs/apk/lite/release/*.apk out/
+          rm -f out/*full-universal*   # 200+ MB: the per-CPU full builds are enough
+          rm -f release.jks keystore.properties
+          cd out && sha256sum *.apk > SHA256SUMS.txt && cat SHA256SUMS.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SLMtune-android-${{ github.sha }}
+          path: out/
+          retention-days: 14
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: out/*
+          prerelease: ${{ contains(github.ref_name, 'beta') }}

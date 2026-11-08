@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher foreground: the shield in the SLMtune magenta gradient, inside the 66dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <group android:translateX="30" android:translateY="28" android:scaleX="2" android:scaleY="2">
+        <path android:pathData="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1z">
+            <aapt:attr name="android:fillColor">
+                <gradient android:type="linear" android:startX="3" android:startY="1" android:endX="21" android:endY="23">
+                    <item android:offset="0" android:color="#FFD100D1" />
+                    <item android:offset="1" android:color="#FFFF3DFF" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <path android:fillColor="#FFFFFFFF" android:pathData="M10,17l-4,-4 1.41,-1.41L10,14.17l6.59,-6.59L18,9l-8,8z" />
+    </group>
+</vector>
