@@ -2,7 +2,7 @@ name: Build
 
 # Everything from source on every push: the sing-box core (libbox), the extra cores of the full build
 # (downloaded from their projects and checked by SHA-256), unit tests, full + lite APKs.
-# A tag "v*" also publishes the APKs as a GitHub release.
+# A tag "v*" also publishes the APKs as a GitHub release (only when signed with the release key).
 #
 # Signing: with the repository secrets KEYSTORE_BASE64 (base64 of release.jks), KEYSTORE_PASSWORD,
 # KEY_ALIAS and KEY_PASSWORD the APKs are signed with the release key; without them, with a debug key
@@ -79,6 +79,7 @@ jobs:
             echo "$KEYSTORE_BASE64" | base64 -d > release.jks
             printf 'storeFile=release.jks\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' "$KEYSTORE_PASSWORD" "$KEY_ALIAS" "$KEY_PASSWORD" > keystore.properties
             echo "Signing with the release key"
+            echo "SIGNED=true" >> "$GITHUB_ENV"
           else
             echo "::warning::No release key in secrets: APKs are signed with a debug key"
           fi
@@ -105,8 +106,9 @@ jobs:
           path: out/
           retention-days: 14
 
+      # Only release-key builds are published: a debug-signed APK can't update an installed official one.
       - name: Release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') && env.SIGNED == 'true'
         uses: softprops/action-gh-release@v2
         with:
           files: out/*
