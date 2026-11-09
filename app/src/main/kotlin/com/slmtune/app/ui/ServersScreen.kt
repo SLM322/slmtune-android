@@ -138,6 +138,7 @@ fun ServersScreen(activity: MainActivity) {
                 DropdownMenuItem({ Text("Подписка по ссылке") }, { addMenu = false; subDialog = true })
                 DropdownMenuItem({ Text("Cloudflare WARP (бесплатно)") }, {
                     addMenu = false
+                    activity.toast("Регистрирую WARP у Cloudflare…")
                     scope.launch {
                         runCatching { Warp.register() }
                             .onSuccess { Store.addServers(listOf(it)); activity.toast("Добавлен Cloudflare WARP") }

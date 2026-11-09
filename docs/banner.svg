@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D100D1"/>
+      <stop offset="1" stop-color="#FF3DFF"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#D100D1" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#D100D1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#151518"/>
+      <stop offset="1" stop-color="#0B0B0D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="480" rx="28" fill="#0B0B0D"/>
+  <circle cx="1010" cy="240" r="300" fill="url(#glow)"/>
+
+  <!-- title -->
+  <text x="72" y="150" font-size="84" font-weight="800" fill="#F2F2F5">SLMtune</text>
+  <text x="72" y="208" font-size="40" font-weight="600" fill="url(#g)">для Android</text>
+  <text x="72" y="262" font-size="22" fill="#A6A6B0">VPN-клиент, который сам решает, что пустить через туннель:</text>
+  <text x="72" y="292" font-size="22" fill="#A6A6B0">ИИ и заблокированное — через VPN, российское и игры — напрямую.</text>
+
+  <!-- protocol chips -->
+  <g font-size="15" font-weight="600">
+    <g transform="translate(72,330)">
+      <rect width="118" height="34" rx="17" fill="#2E0B2E"/><text x="59" y="22" text-anchor="middle" fill="#FF3DFF">VLESS Reality</text>
+      <rect x="128" width="84" height="34" rx="17" fill="#2E0B2E"/><text x="170" y="22" text-anchor="middle" fill="#FF3DFF">XHTTP</text>
+      <rect x="222" width="104" height="34" rx="17" fill="#2E0B2E"/><text x="274" y="22" text-anchor="middle" fill="#FF3DFF">Hysteria2</text>
+      <rect x="336" width="70" height="34" rx="17" fill="#2E0B2E"/><text x="371" y="22" text-anchor="middle" fill="#FF3DFF">TUIC</text>
+      <rect x="416" width="84" height="34" rx="17" fill="#2E0B2E"/><text x="458" y="22" text-anchor="middle" fill="#FF3DFF">Trojan</text>
+      <rect x="510" width="134" height="34" rx="17" fill="#2E0B2E"/><text x="577" y="22" text-anchor="middle" fill="#FF3DFF">Shadowsocks</text>
+    </g>
+    <g transform="translate(72,374)">
+      <rect width="112" height="34" rx="17" fill="#1C1C21"/><text x="56" y="22" text-anchor="middle" fill="#F2F2F5">NaiveProxy</text>
+      <rect x="122" width="110" height="34" rx="17" fill="#1C1C21"/><text x="177" y="22" text-anchor="middle" fill="#F2F2F5">WireGuard</text>
+      <rect x="242" width="74" height="34" rx="17" fill="#1C1C21"/><text x="279" y="22" text-anchor="middle" fill="#F2F2F5">WARP</text>
+      <rect x="326" width="62" height="34" rx="17" fill="#1C1C21"/><text x="357" y="22" text-anchor="middle" fill="#F2F2F5">Tor</text>
+      <rect x="398" width="122" height="34" rx="17" fill="#1C1C21"/><text x="459" y="22" text-anchor="middle" fill="#F2F2F5">TrustTunnel</text>
+      <rect x="530" width="86" height="34" rx="17" fill="#1C1C21"/><text x="573" y="22" text-anchor="middle" fill="#F2F2F5">AnyTLS</text>
+    </g>
+  </g>
+  <text x="72" y="444" font-size="15" fill="#6E6E78">sing-box 1.14 · Xray · Hysteria · Tor · TrustTunnel  ·  Android 8+  ·  GPL-3.0</text>
+
+  <!-- phone -->
+  <g transform="translate(880,40)">
+    <rect width="260" height="400" rx="36" fill="#1C1C21" stroke="#2A2A30" stroke-width="3"/>
+    <rect x="12" y="12" width="236" height="376" rx="26" fill="url(#screen)"/>
+    <text x="34" y="58" font-size="20" font-weight="700" fill="#F2F2F5">SLMtune</text>
+    <circle cx="130" cy="150" r="62" fill="#151518" stroke="#34D399" stroke-width="4"/>
+    <path d="M130 118 v30" stroke="#34D399" stroke-width="7" stroke-linecap="round"/>
+    <path d="M110 128 a28 28 0 1 0 40 0" fill="none" stroke="#34D399" stroke-width="7" stroke-linecap="round"/>
+    <text x="130" y="244" font-size="15" font-weight="600" text-anchor="middle" fill="#34D399">Подключено · 12:47</text>
+    <text x="130" y="268" font-size="12" text-anchor="middle" fill="#A6A6B0">↓ 4.2 МБ/с   ↑ 610 КБ/с</text>
+    <rect x="30" y="290" width="200" height="40" rx="12" fill="#151518"/>
+    <text x="44" y="315" font-size="13" font-weight="600" fill="#F2F2F5">Германия · VLESS Reality</text>
+    <rect x="30" y="342" width="56" height="26" rx="8" fill="none" stroke="#2A2A30"/>
+    <text x="58" y="360" font-size="11" text-anchor="middle" fill="#A6A6B0">Всё</text>
+    <rect x="92" y="342" width="72" height="26" rx="8" fill="#2E0B2E"/>
+    <text x="128" y="360" font-size="11" text-anchor="middle" fill="#F2F2F5">Кроме РФ</text>
+    <rect x="170" y="342" width="60" height="26" rx="8" fill="none" stroke="#2A2A30"/>
+    <text x="200" y="360" font-size="11" text-anchor="middle" fill="#A6A6B0">Блок.</text>
+  </g>
+</svg>

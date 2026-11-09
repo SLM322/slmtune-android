@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="700" viewBox="0 0 1280 700" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D100D1"/>
+      <stop offset="1" stop-color="#FF3DFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="700" rx="28" fill="#0B0B0D"/>
+  <text x="56" y="70" font-size="34" font-weight="800" fill="#F2F2F5">Что умеет</text>
+  <text x="56" y="102" font-size="17" fill="#6E6E78">Всё из ПК-версии SLMtune, что вообще возможно на телефоне без root</text>
+
+  <!-- card template: 376 x 260, gap 24 -->
+  <g font-size="16" fill="#A6A6B0">
+    <!-- 1 -->
+    <g transform="translate(56,132)">
+      <rect width="376" height="260" rx="20" fill="#151518"/>
+      <circle cx="44" cy="46" r="22" fill="url(#g)"/>
+      <path d="M36 46 h16 M44 38 v16" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <text x="80" y="54" font-size="21" font-weight="700" fill="#F2F2F5">Быстрое подключение</text>
+      <text x="28" y="104">• ссылка из буфера, QR-код камерой</text>
+      <text x="28" y="134">• «Поделиться» из Telegram, slmtune://</text>
+      <text x="28" y="164">• подписки: трафик и срок видны</text>
+      <text x="28" y="194">• бесплатный Cloudflare WARP</text>
+      <text x="28" y="224">• плитка в шторке, скорость в уведомлении</text>
+    </g>
+    <!-- 2 -->
+    <g transform="translate(452,132)">
+      <rect width="376" height="260" rx="20" fill="#151518"/>
+      <circle cx="44" cy="46" r="22" fill="url(#g)"/>
+      <path d="M33 40 h22 M33 52 h22" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <text x="80" y="54" font-size="21" font-weight="700" fill="#F2F2F5">Все протоколы, 5 ядер</text>
+      <text x="28" y="104">• VLESS: Reality, XHTTP, Encryption</text>
+      <text x="28" y="134">• Hysteria2, TUIC, Trojan, AnyTLS</text>
+      <text x="28" y="164">• Shadowsocks 2022, ShadowTLS, Naive</text>
+      <text x="28" y="194">• VMess, WireGuard, SOCKS5, TrustTunnel</text>
+      <text x="28" y="224">• sing-box · Xray · Hysteria · Tor · TT</text>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(848,132)">
+      <rect width="376" height="260" rx="20" fill="#151518"/>
+      <circle cx="44" cy="46" r="22" fill="url(#g)"/>
+      <path d="M34 54 q10 -20 20 -16 M50 34 l4 4 -4 4" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="80" y="54" font-size="21" font-weight="700" fill="#F2F2F5">Умные маршруты</text>
+      <text x="28" y="104">• «Всё», «Кроме РФ», «Заблокированное»</text>
+      <text x="28" y="134">• ChatGPT, Claude, Gemini — всегда VPN</text>
+      <text x="28" y="164">• игры напрямую, звонки через VPN</text>
+      <text x="28" y="194">• свои правила: сайты, IP, приложения</text>
+      <text x="28" y="224">• блок рекламы, трекеров и 18+</text>
+    </g>
+    <!-- 4 -->
+    <g transform="translate(56,412)">
+      <rect width="376" height="260" rx="20" fill="#151518"/>
+      <circle cx="44" cy="46" r="22" fill="url(#g)"/>
+      <rect x="35" y="37" width="7" height="7" fill="#fff"/><rect x="46" y="37" width="7" height="7" fill="#fff"/>
+      <rect x="35" y="48" width="7" height="7" fill="#fff"/><rect x="46" y="48" width="7" height="7" fill="#fff"/>
+      <text x="80" y="54" font-size="21" font-weight="700" fill="#F2F2F5">Приложения и сети</text>
+      <text x="28" y="104">• через VPN только выбранные приложения</text>
+      <text x="28" y="134">• …или все, кроме выбранных</text>
+      <text x="28" y="164">• дома по Wi-Fi VPN выключается сам</text>
+      <text x="28" y="194">• kill switch средствами Android</text>
+      <text x="28" y="224">• локальная сеть и ТВ — мимо туннеля</text>
+    </g>
+    <!-- 5 -->
+    <g transform="translate(452,412)">
+      <rect width="376" height="260" rx="20" fill="#151518"/>
+      <circle cx="44" cy="46" r="22" fill="url(#g)"/>
+      <circle cx="44" cy="46" r="10" fill="none" stroke="#fff" stroke-width="3.5"/><circle cx="44" cy="46" r="4" fill="#fff"/>
+      <text x="80" y="54" font-size="21" font-weight="700" fill="#F2F2F5">Tor, каскад, группы</text>
+      <text x="28" y="104">• Tor: Snowflake, obfs4, WebTunnel, meek</text>
+      <text x="28" y="134">• прогресс подключения на экране</text>
+      <text x="28" y="164">• каскад: сервер через другой сервер</text>
+      <text x="28" y="194">• группы «самый быстрый» и «резерв»</text>
+      <text x="28" y="224">• внешний IP после подключения</text>
+    </g>
+    <!-- 6 -->
+    <g transform="translate(848,412)">
+      <rect width="376" height="260" rx="20" fill="#151518" stroke="#D100D1" stroke-opacity="0.6" stroke-width="2"/>
+      <circle cx="44" cy="46" r="22" fill="url(#g)"/>
+      <rect x="33" y="36" width="22" height="8" rx="2" fill="#fff"/><rect x="33" y="48" width="22" height="8" rx="2" fill="#fff"/>
+      <text x="80" y="54" font-size="21" font-weight="700" fill="#F2F2F5">Мои серверы по SSH</text>
+      <text x="28" y="104">• свой VPS настраивается с телефона</text>
+      <text x="28" y="134">• 12 протоколов галочками, BBR, порты</text>
+      <text x="28" y="164">• пользователи с лимитом и сроком</text>
+      <text x="28" y="194">• ссылки для друзей одной кнопкой</text>
+      <text x="28" y="224">• защита SSH, swap, проверка сети</text>
+    </g>
+  </g>
+</svg>

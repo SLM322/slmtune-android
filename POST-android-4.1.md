@@ -37,4 +37,6 @@ Snowflake, obfs4, WebTunnel, meek или свои мосты из @GetBridgesBot
 
 Исходники открыты (GPL-3.0). Отпечаток подписи APK: 7f9d733f…6686b8c9
 
+📥 Скачать: https://github.com/SLM322/slmtune-android/releases/tag/v4.1-beta
+💜 Поддержать: https://www.donationalerts.com/r/slm322
 👉 Канал: https://t.me/SLMtune

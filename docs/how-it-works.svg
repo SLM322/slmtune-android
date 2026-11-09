@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="590" viewBox="0 0 1280 590" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D100D1"/>
+      <stop offset="1" stop-color="#FF3DFF"/>
+    </linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6E6E78"/>
+    </marker>
+    <marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#FF3DFF"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#34D399"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="590" rx="28" fill="#0B0B0D"/>
+  <text x="56" y="68" font-size="34" font-weight="800" fill="#F2F2F5">Как это работает</text>
+  <text x="56" y="100" font-size="17" fill="#6E6E78">Один туннель на весь телефон, а решение «куда» принимается для каждого соединения</text>
+
+  <!-- apps -->
+  <g transform="translate(56,170)">
+    <rect width="200" height="200" rx="20" fill="#151518"/>
+    <text x="100" y="40" font-size="19" font-weight="700" text-anchor="middle" fill="#F2F2F5">Приложения</text>
+    <g font-size="15" fill="#A6A6B0" text-anchor="middle">
+      <text x="100" y="82">ChatGPT</text><text x="100" y="110">YouTube</text><text x="100" y="138">Госуслуги</text><text x="100" y="166">игры, банки…</text>
+    </g>
+  </g>
+  <line x1="256" y1="270" x2="320" y2="270" stroke="#6E6E78" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- sing-box -->
+  <g transform="translate(326,140)">
+    <rect width="300" height="260" rx="22" fill="#1C1C21" stroke="url(#g)" stroke-width="2.5"/>
+    <text x="150" y="42" font-size="21" font-weight="800" text-anchor="middle" fill="#F2F2F5">sing-box</text>
+    <text x="150" y="66" font-size="14" text-anchor="middle" fill="#6E6E78">VPN Android + правила + DNS</text>
+    <g font-size="15" fill="#A6A6B0">
+      <text x="28" y="108">• пресет: «Кроме РФ»</text>
+      <text x="28" y="136">• ИИ-сервисы → всегда VPN</text>
+      <text x="28" y="164">• игры → напрямую</text>
+      <text x="28" y="192">• свои правила, реклама → блок</text>
+      <text x="28" y="220">• приложения: только / кроме</text>
+    </g>
+  </g>
+
+  <!-- direct -->
+  <line x1="626" y1="210" x2="760" y2="170" stroke="#34D399" stroke-width="3" marker-end="url(#ag)"/>
+  <g transform="translate(766,120)">
+    <rect width="200" height="96" rx="18" fill="#1E3A34"/>
+    <text x="100" y="40" font-size="18" font-weight="700" text-anchor="middle" fill="#34D399">Напрямую</text>
+    <text x="100" y="68" font-size="14" text-anchor="middle" fill="#A6A6B0">РФ-сайты, банки, игры</text>
+  </g>
+
+  <!-- proxy -->
+  <line x1="626" y1="320" x2="760" y2="350" stroke="#FF3DFF" stroke-width="3" marker-end="url(#am)"/>
+  <g transform="translate(766,300)">
+    <rect width="200" height="110" rx="18" fill="#2E0B2E"/>
+    <text x="100" y="38" font-size="18" font-weight="700" text-anchor="middle" fill="#FF3DFF">Через VPN</text>
+    <text x="100" y="64" font-size="14" text-anchor="middle" fill="#A6A6B0">VLESS, Hysteria2, TUIC,</text>
+    <text x="100" y="84" font-size="14" text-anchor="middle" fill="#A6A6B0">WireGuard… — сам sing-box</text>
+  </g>
+  <line x1="966" y1="355" x2="1040" y2="355" stroke="#FF3DFF" stroke-width="3" marker-end="url(#am)"/>
+  <g transform="translate(1046,300)">
+    <rect width="178" height="110" rx="18" fill="#151518"/>
+    <text x="89" y="48" font-size="18" font-weight="700" text-anchor="middle" fill="#F2F2F5">Ваш сервер</text>
+    <text x="89" y="74" font-size="14" text-anchor="middle" fill="#A6A6B0">или WARP, или Tor</text>
+  </g>
+
+  <!-- extra cores -->
+  <line x1="866" y1="410" x2="866" y2="448" stroke="#6E6E78" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#a)"/>
+  <g transform="translate(326,452)">
+    <rect width="898" height="100" rx="18" fill="#151518" stroke="#2A2A30" stroke-width="2"/>
+    <text x="28" y="34" font-size="17" font-weight="700" fill="#F2F2F5">Полная версия: отдельные ядра</text>
+    <text x="28" y="60" font-size="15" fill="#A6A6B0">Xray (XHTTP, VLESS Encryption) · Hysteria 2 · Tor + мосты · TrustTunnel</text>
+    <text x="28" y="84" font-size="15" fill="#A6A6B0">работают как локальный SOCKS 127.0.0.1 за sing-box — правила и DNS остаются общими</text>
+  </g>
+</svg>
